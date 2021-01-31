@@ -8,6 +8,7 @@ target 'myviroapp' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'ViroReact', :path => './node_modules/react-viro/ios/'
   pod 'ViroKit_static_lib', :path => '../node_modules/react-viro/ios/dist/ViroRenderer/static_lib'
 
   target 'myviroappTests' do
