@@ -10,6 +10,8 @@ This is a blank React Native project setup with Viro.
 4. `npx pod-install` (iOS)
 5. `npx react-native run-android` or `npx react-native run-ios`
 
+NOTE: The variant arguments are not needed for debug or release.
+
 ## How to Install Viro in an existing project?
 
 First, you have to install the latest version of viro, for now, we will install it from the repo instead of a npm package.
