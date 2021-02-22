@@ -21,7 +21,7 @@ First, you have to install the latest version of viro, for now, we will install 
 ### Linking (iOS)
 
 1. Navigate to the ios folder and open your Podfile.
-2. Behing the `use_react_native!(:path => config["reactNativePath"])` line add the following lines:
+2. Behind the `use_react_native!(:path => config["reactNativePath"])` line add the following lines:
 
 ```
 pod 'ViroReact', :path => '../node_modules/react-viro/ios/'
