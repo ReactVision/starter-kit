@@ -91,13 +91,20 @@ NOTE: You can replace the "AR" string for one of the following options depending
 Be sure to follow [these instructions](https://docs.viromedia.com/docs/integrating-existing-projects-android#updating-your-androidmanifestxml) and also, the following lines so you have screenshot, video recording and compatibility with the more devices as possible:
 
 ```
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-feature android:name="android.hardware.camera" />
-<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" tools:replace="required"/>
-<uses-feature android:glEsVersion="0x00030000" android:required="false" tools:node="remove" tools:replace="required" />
-<uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" tools:replace="required" />
-<uses-feature android:name="android.hardware.sensor.gyroscope" android:required="false" tools:replace="required" />
+<manifest
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.example.app">
+  ...
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-feature android:name="android.hardware.camera" />
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" tools:replace="required"/>
+  <uses-feature android:glEsVersion="0x00030000" android:required="false" tools:node="remove" tools:replace="required" />
+  <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" tools:replace="required" />
+  <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="false" tools:replace="required" />
+  ...
+</manifest>
 ```
 
 # Need help?
