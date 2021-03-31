@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import {
   ViroARScene,
   ViroText,
   ViroConstants,
   ViroARSceneNavigator
-} from 'react-viro';
+} from '@viro-community/react-viro';
 
 class HelloWorldSceneAR extends Component {
 
