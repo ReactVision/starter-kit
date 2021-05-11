@@ -28,7 +28,9 @@ pod 'ViroReact', :path => '../node_modules/react-viro/ios/'
 pod 'ViroKit_static_lib', :path => '../node_modules/react-viro/ios/dist/ViroRenderer/static_lib'
 ```
 
-3. Run `pod install` and you're done.
+3. Add `NSCameraUsageDescription` and `NSPhotoLibraryAddUsageDescription` to your Info.plist file.
+
+4. Run `pod install` and you're done.
 
 ### Linking (Android)
 #### build.gradle (Project)
