@@ -24,8 +24,8 @@ First, you have to install the latest version of viro, for now, we will install 
 2. Behind the `use_react_native!(:path => config["reactNativePath"])` line add the following lines:
 
 ```
-pod 'ViroReact', :path => '../node_modules/react-viro/ios/'
-pod 'ViroKit_static_lib', :path => '../node_modules/react-viro/ios/dist/ViroRenderer/static_lib'
+pod 'ViroReact', :path => '../node_modules/@viro-community/ios/'
+pod 'ViroKit_static_lib', :path => '../node_modules/@viro-community/ios/dist/ViroRenderer/static_lib'
 ```
 
 3. Add `NSCameraUsageDescription` and `NSPhotoLibraryAddUsageDescription` to your Info.plist file.
