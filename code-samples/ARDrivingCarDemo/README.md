@@ -1,13 +1,17 @@
 # AR Driving Car Demo
 
+Original code from here:
 <a href="https://github.com/viromedia/viro/tree/master/js/ARDrivingCarDemo">
 <img src="https://raw.githubusercontent.com/viromedia/viro/master/js/ARDrivingCarDemo/ARDrivingCarDemo.gif">
 </a>
 
 ## Setup Instructions:
-1. Open `App.js` and uncomment the line at the bottom `ViroCodeSamplesSceneNavigator = require('./js/ARDrivingCarDemo/ARDrivingCar');`
-2. Open `ARDrivingCar.js` and add Viro API Key
-3. Start `npm` packager server and run sample
+1. In the app root directory, open `index.js` and change the import App line to read
+```
+import App from './code-samples/ARDrivingCarDemo/App';
+```
+
+2. Start `npm` packager server and run sample
 
 ## Notes:
 
