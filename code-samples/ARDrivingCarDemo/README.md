@@ -1,8 +1,7 @@
 # AR Driving Car Demo
 
 Original code from here:
-<a href="https://github.com/viromedia/viro/tree/master/js/ARDrivingCarDemo">
-</a>
+https://github.com/viromedia/viro/tree/master/js/ARDrivingCarDemo
 
 ## Setup Instructions:
 1. In the app root directory, open `index.js` and change the import App line to read
