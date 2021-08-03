@@ -3,7 +3,7 @@
 Reticle indicates when onCameraHitTest detects a plane. Touch reticle to place object. Seems to have more stable tracking when fixing object in the environment.
 
 Adapted from original code from here:
-https://github.com/viromedia/viro/tree/master/js/ARDrivingCarDemo"
+https://github.com/viromedia/viro/tree/master/js/ARDrivingCarDemo
 
 ## Setup Instructions:
 
