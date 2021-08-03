@@ -4,7 +4,6 @@ Reticle indicates when onCameraHitTest detects a plane. Touch reticle to place o
 
 Adapted from original code from here:
 <a href="https://github.com/viromedia/viro/tree/master/js/ARDrivingCarDemo">
-<img src="https://raw.githubusercontent.com/viromedia/viro/master/js/ARDrivingCarDemo/ARDrivingCarDemo.gif">
 </a>
 
 ## Setup Instructions:
