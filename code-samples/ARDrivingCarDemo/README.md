@@ -1,6 +1,6 @@
 # AR Driving Car Demo
 
-Original code from here:
+Original code from here: 
 https://github.com/viromedia/viro/tree/master/js/ARDrivingCarDemo
 
 ## Setup Instructions:
