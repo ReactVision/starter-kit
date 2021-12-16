@@ -1,49 +1,34 @@
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
-import {
-  ViroARScene,
-  ViroText,
-  ViroConstants,
-  ViroARSceneNavigator,
-} from '@viro-community/react-viro';
-
-const HelloWorldSceneAR = () => {
-  const [text, setText] = useState('Initializing AR...');
-
-  function onInitialized(state, reason) {
-    console.log('guncelleme', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
-      setText('Hello World!');
-    } else if (state === ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
-    }
-  }
-
-  return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
-      <ViroText
-        text={text}
-        scale={[0.5, 0.5, 0.5]}
-        position={[0, 0, -1]}
-        style={styles.helloWorldTextStyle}
-      />
-    </ViroARScene>
-  );
-};
+import {Button, StyleSheet, View} from 'react-native';
+import AR from './screens/AR';
+import VR from './screens/VR';
 
 export default () => {
-  return (
-    <ViroARSceneNavigator
-      autofocus={true}
-      initialScene={{
-        scene: HelloWorldSceneAR,
-      }}
-      style={styles.f1}
-    />
-  );
+  const [view, setView] = useState('HOME');
+
+  switch (view) {
+    case 'AR':
+      return <AR />;
+    case 'VR':
+      return <VR />;
+    default:
+      return (
+        <View style={styles.home}>
+          <Button title="AR" onPress={() => setView('AR')} />
+          <Button title="VR" onPress={() => setView('VR')} />
+        </View>
+      );
+  }
 };
 
 var styles = StyleSheet.create({
+  home: {
+    backgroundColor: '#fff',
+    flex: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   f1: {flex: 1},
   helloWorldTextStyle: {
     fontFamily: 'Arial',
