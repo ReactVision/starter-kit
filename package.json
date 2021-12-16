@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@viro-community/react-viro": "^2.20.2",
+    "@viro-community/react-viro": "^2.22.0",
     "fsevents": "^2.3.2",
     "react": "17.0.2",
     "react-native": "0.65.1"
