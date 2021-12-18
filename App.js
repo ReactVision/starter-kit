@@ -8,10 +8,11 @@ import {
   View,
 } from 'react-native';
 import AR from './screens/demos/AR';
-import ARIssue24 from './screens/issues/Issue24';
-import ARIssue31 from './screens/issues/Issue31';
-import ARIssue41 from './screens/issues/Issue41';
-import ARIssue58 from './screens/issues/Issue58';
+import Issue24 from './screens/issues/Issue24';
+import Issue31 from './screens/issues/Issue31';
+import Issue41 from './screens/issues/Issue41';
+import Issue58 from './screens/issues/Issue58';
+import Issue62 from './screens/issues/Issue62';
 import VR from './screens/demos/VR';
 
 const demos = [
@@ -19,12 +20,7 @@ const demos = [
   {title: 'VR Demo', id: 'VR'},
 ];
 
-const issues = [
-  {title: 'Issue #24', id: '24'},
-  {title: 'Issue #31', id: '31'},
-  {title: 'Issue #41', id: '41'},
-  {title: 'Issue #58', id: '58'},
-];
+const issues = ['24', '31', '41', '58', '62'];
 
 export default () => {
   const [view, setView] = useState('HOME');
@@ -34,18 +30,23 @@ export default () => {
   };
 
   switch (view) {
+    // Demos
     case 'AR':
       return <AR />;
-    case '24':
-      return <ARIssue24 />;
-    case '31':
-      return <ARIssue31 />;
-    case '41':
-      return <ARIssue41 />;
-    case '58':
-      return <ARIssue58 />;
     case 'VR':
       return <VR />;
+
+    // Issues
+    case '24':
+      return <Issue24 />;
+    case '31':
+      return <Issue31 />;
+    case '41':
+      return <Issue41 />;
+    case '58':
+      return <Issue58 />;
+    case '58':
+      return <Issue62 />;
     default:
       return (
         <ScrollView style={styles.home} contentContainerStyle={styles.content}>
@@ -70,14 +71,12 @@ export default () => {
             <Text style={styles.subheaderText}>GitHub Issues</Text>
           </View>
           {issues.map(issue => (
-            <View key={issue.id} style={styles.issue}>
-              <Pressable
-                onPress={() => setView(issue.id)}
-                style={styles.button}>
-                <Text style={styles.buttonText}>{issue.title}</Text>
+            <View key={issue} style={styles.issue}>
+              <Pressable onPress={() => setView(issue)} style={styles.button}>
+                <Text style={styles.buttonText}>Issue #{issue}</Text>
               </Pressable>
               <Pressable
-                onPress={() => handleClickGitHubLink(issue.id)}
+                onPress={() => handleClickGitHubLink(issue)}
                 style={styles.link}>
                 <Text style={styles.buttonText}>GitHub Link</Text>
               </Pressable>
