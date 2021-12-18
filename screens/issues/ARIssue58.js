@@ -3,7 +3,7 @@ import {
   ViroARScene,
   ViroARSceneNavigator,
   ViroARTrackingTargets,
-  ViroBox,
+  ViroButton,
   ViroConstants,
 } from '@viro-community/react-viro';
 import React from 'react';
@@ -17,20 +17,35 @@ ViroARTrackingTargets.createTargets({
 });
 
 const HelloWorldSceneAR = () => {
-  function onInitialized(state, reason) {
+  const onInitialized = (state, reason) => {
     console.log('onInitialized', state, reason);
     if (state === ViroConstants.TRACKING_NORMAL) {
       console.log('tracking initialized');
     } else if (state === ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
     }
-  }
+  };
+
+  const onButtonGaze = () => {
+    console.log('button gazed');
+  };
+
+  const onButtonTap = () => {
+    console.log('button tapped');
+  };
 
   return (
     <ViroARScene onTrackingUpdated={onInitialized}>
-      <ViroARObjectMarker target={'targetOne'}>
-        <ViroBox position={[0, 0.25, 0]} scale={[0.5, 0.5, 0.5]} />
-      </ViroARObjectMarker>
+      <ViroButton
+        source={require('../../assets/button/button.png')}
+        gazeSource={require('../../assets/button/gazing.png')}
+        tapSource={require('../../assets/button/tapped.png')}
+        position={[0, 0, -5]}
+        height={1}
+        width={1}
+        onTap={onButtonTap}
+        onGaze={onButtonGaze}
+      />
     </ViroARScene>
   );
 };
