@@ -26,12 +26,12 @@ const HelloWorldSceneAR = () => {
     }
   };
 
-  const onButtonGaze = () => {
-    console.log('button gazed');
+  const onButtonClick = (position, source) => {
+    console.log('button clicked', position, source);
   };
 
-  const onButtonTap = () => {
-    console.log('button tapped');
+  const onButtonClickState = (stateValue, position, source) => {
+    console.log('button click state', stateValue, position, source);
   };
 
   return (
@@ -43,8 +43,8 @@ const HelloWorldSceneAR = () => {
         position={[0, 0, -5]}
         height={1}
         width={1}
-        onTap={onButtonTap}
-        onGaze={onButtonGaze}
+        onClick={onButtonClick}
+        onClickState={onButtonClickState}
       />
     </ViroARScene>
   );
