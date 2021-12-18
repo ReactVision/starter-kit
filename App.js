@@ -3,6 +3,7 @@ import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import AR from './screens/demos/AR';
 import ARIssue24 from './screens/issues/ARIssue24';
 import ARIssue31 from './screens/issues/ARIssue31';
+import ARIssue41 from './screens/issues/ARIssue41';
 import ARIssue58 from './screens/issues/ARIssue58';
 import VR from './screens/demos/VR';
 
@@ -14,6 +15,7 @@ const demos = [
 const issues = [
   {title: 'AR Issue #24', id: '24'},
   {title: 'AR Issue #31', id: '31'},
+  {title: 'AR Issue #41', id: '41'},
   {title: 'AR Issue #58', id: '58'},
 ];
 
@@ -27,6 +29,8 @@ export default () => {
       return <ARIssue24 />;
     case '31':
       return <ARIssue31 />;
+    case '41':
+      return <ARIssue41 />;
     case '58':
       return <ARIssue58 />;
     case 'VR':
