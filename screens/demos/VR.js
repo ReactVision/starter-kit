@@ -22,15 +22,13 @@ const HelloWorldSceneAR = () => {
 
   return (
     <ViroScene onTrackingUpdated={onInitialized}>
-      <ViroScene>
-        <ViroText
-          text="Hello World!"
-          width={2}
-          height={2}
-          position={[0, 0, -2]}
-          style={styles.helloWorldTextStyle}
-        />
-      </ViroScene>
+      <ViroText
+        text="Hello World!"
+        width={2}
+        height={2}
+        position={[0, 0, -2]}
+        style={styles.helloWorldTextStyle}
+      />
     </ViroScene>
   );
 };

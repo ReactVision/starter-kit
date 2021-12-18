@@ -7,10 +7,11 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "setup": "rm -rf node_modules && yarn install && cd ios && pod install && cd .."
   },
   "dependencies": {
-    "@viro-community/react-viro": "^2.22.0",
+    "@viro-community/react-viro": "../viro",
     "fsevents": "^2.3.2",
     "react": "17.0.2",
     "react-native": "0.65.1"
