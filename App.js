@@ -45,7 +45,7 @@ export default () => {
       return <Issue41 />;
     case '58':
       return <Issue58 />;
-    case '58':
+    case '62':
       return <Issue62 />;
     default:
       return (
