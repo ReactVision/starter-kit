@@ -7,26 +7,42 @@ import {
   Text,
   View,
 } from 'react-native';
+
 import AR from './screens/demos/AR';
-import Issue24 from './screens/issues/Issue24';
-import Issue31 from './screens/issues/Issue31';
-import Issue41 from './screens/issues/Issue41';
-import Issue58 from './screens/issues/Issue58';
-import Issue62 from './screens/issues/Issue62';
 import VR from './screens/demos/VR';
+
+import Issue24 from './screens/github_issues/Issue24';
+import Issue31 from './screens/github_issues/Issue31';
+import Issue41 from './screens/github_issues/Issue41';
+import Issue58 from './screens/github_issues/Issue58';
+import Issue62 from './screens/github_issues/Issue62';
+
+import CheethKeeth12202021 from './screens/discord_issues/CheethKeeth_12202021';
 
 const demos = [
   {title: 'AR Demo', id: 'AR'},
   {title: 'VR Demo', id: 'VR'},
 ];
 
-const issues = ['24', '31', '41', '58', '62'];
+const github_issues = ['24', '31', '41', '58', '62'];
+
+const discord_issues = [
+  {
+    title: 'CheethKeeth 12/20/2021',
+    id: 'CheethKeeth_12202021',
+    link: 'https://discord.com/channels/774471080713781259/774471080713781263/922512508751855647',
+  },
+];
 
 export default () => {
   const [view, setView] = useState('HOME');
 
   const handleClickGitHubLink = id => {
     Linking.openURL(`https://github.com/ViroCommunity/viro/issues/${id}`);
+  };
+
+  const handleClickDiscordLink = link => {
+    Linking.openURL(link);
   };
 
   switch (view) {
@@ -36,7 +52,11 @@ export default () => {
     case 'VR':
       return <VR />;
 
-    // Issues
+    // Discord Issues
+    case 'CheethKeeth_12202021':
+      return <CheethKeeth12202021 />;
+
+    // GitHub Issues
     case '24':
       return <Issue24 />;
     case '31':
@@ -53,6 +73,7 @@ export default () => {
           <View style={styles.header}>
             <Text style={styles.headerText}>Viro Starter Kit</Text>
           </View>
+
           {/* General Demos */}
           <View style={styles.header}>
             <Text style={styles.subheaderText}>General Usage</Text>
@@ -70,7 +91,7 @@ export default () => {
           <View style={styles.header}>
             <Text style={styles.subheaderText}>GitHub Issues</Text>
           </View>
-          {issues.map(issue => (
+          {github_issues.map(issue => (
             <View key={issue} style={styles.issue}>
               <Pressable onPress={() => setView(issue)} style={styles.button}>
                 <Text style={styles.buttonText}>Issue #{issue}</Text>
@@ -79,6 +100,25 @@ export default () => {
                 onPress={() => handleClickGitHubLink(issue)}
                 style={styles.link}>
                 <Text style={styles.buttonText}>GitHub Link</Text>
+              </Pressable>
+            </View>
+          ))}
+
+          {/* Discord Issues */}
+          <View style={styles.header}>
+            <Text style={styles.subheaderText}>Discord Issues</Text>
+          </View>
+          {discord_issues.map(issue => (
+            <View key={issue} style={styles.issue}>
+              <Pressable
+                onPress={() => setView(issue.id)}
+                style={styles.button}>
+                <Text style={styles.buttonText}>{issue.title}</Text>
+              </Pressable>
+              <Pressable
+                onPress={() => handleClickDiscordLink(issue.link)}
+                style={styles.discordLink}>
+                <Text style={styles.buttonText}>Message</Text>
               </Pressable>
             </View>
           ))}
@@ -115,6 +155,16 @@ var styles = StyleSheet.create({
   },
   link: {
     backgroundColor: '#007AFF',
+    marginBottom: 10,
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    borderRadius: 10,
+  },
+  discordLink: {
+    backgroundColor: '#5865F2',
     marginBottom: 10,
     flex: 1,
     display: 'flex',
