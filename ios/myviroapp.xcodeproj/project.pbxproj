@@ -37,9 +37,6 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = myviroapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = myviroapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = myviroapp/main.m; sourceTree = "<group>"; };
-		48A0565DE3D44B56ECD1F848 /* Pods-myviroapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp.debug.xcconfig"; path = "Target Support Files/Pods-myviroapp/Pods-myviroapp.debug.xcconfig"; sourceTree = "<group>"; };
-		4DFD222EAE268ECC94A3CB53 /* Pods-myviroapp-myviroappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp-myviroappTests.release.xcconfig"; path = "Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests.release.xcconfig"; sourceTree = "<group>"; };
-		60D8DF7559FA34C33C075172 /* libPods-myviroapp-myviroappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myviroapp-myviroappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = myviroapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B9E2400B30E796FBC5AADEE /* libPods-myviroapp-myviroappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myviroapp-myviroappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B2BA465C60546A15A5BDC7 /* Pods-myviroapp-myviroappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp-myviroappTests.debug.xcconfig"; path = "Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,17 +115,6 @@
 				8B9E2400B30E796FBC5AADEE /* libPods-myviroapp-myviroappTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		39151F339D5A4A305A34497A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				48A0565DE3D44B56ECD1F848 /* Pods-myviroapp.debug.xcconfig */,
-				866F8915E3A58656ABBC45C9 /* Pods-myviroapp.release.xcconfig */,
-				F63F571D998311D83A5D13F4 /* Pods-myviroapp-myviroappTests.debug.xcconfig */,
-				4DFD222EAE268ECC94A3CB53 /* Pods-myviroapp-myviroappTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -264,28 +250,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		007C5A09EE085A993C05F611 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-myviroapp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

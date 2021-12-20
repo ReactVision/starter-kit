@@ -307,7 +307,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "ViroKit (from `../node_modules/@viro-community/react-viro/ios/dist/ViroRenderer/`)"
-  - "ViroReact (from `../node_modules/@viro-community/react-viro/ios/`)"
+  - "ViroReact (from `../node_modules/@viro-community/react-viro/ios`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -411,10 +411,6 @@ SPEC CHECKSUMS:
   ViroReact: f4980e6b04918c4340637f9cbaae22a6bb7ea440
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
 
-<<<<<<< HEAD
-PODFILE CHECKSUM: a3b579405c9b93cf2d845778d88cff71f864ac88
-=======
-PODFILE CHECKSUM: e29e8d5f32318ace4c7f1fc71fd62e99dc6a1b3e
->>>>>>> d989aea53a33ce8a7b7864331bf72cf6c6d476e2
+PODFILE CHECKSUM: 362da5306811254ef9e32db0da0fcaaed3d327f1
 
 COCOAPODS: 1.11.2
