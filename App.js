@@ -18,6 +18,7 @@ import Issue58 from './screens/github_issues/Issue58';
 import Issue62 from './screens/github_issues/Issue62';
 
 import CheethKeeth12202021 from './screens/discord_issues/CheethKeeth_12202021';
+import VV12202021 from './screens/discord_issues/VV_12202021';
 
 const demos = [
   {title: 'AR Demo', id: 'AR'},
@@ -31,6 +32,11 @@ const discord_issues = [
     title: 'CheethKeeth 12/20/2021',
     id: 'CheethKeeth_12202021',
     link: 'https://discord.com/channels/774471080713781259/774471080713781263/922512508751855647',
+  },
+  {
+    title: 'VV 12/20/2021',
+    id: 'VV_12202021',
+    link: 'https://discord.com/channels/774471080713781259/774471080713781263/922595857415688232',
   },
 ];
 
@@ -55,6 +61,8 @@ export default () => {
     // Discord Issues
     case 'CheethKeeth_12202021':
       return <CheethKeeth12202021 />;
+    case 'VV_12202021':
+      return <VV12202021 />;
 
     // GitHub Issues
     case '24':
@@ -109,7 +117,7 @@ export default () => {
             <Text style={styles.subheaderText}>Discord Issues</Text>
           </View>
           {discord_issues.map(issue => (
-            <View key={issue} style={styles.issue}>
+            <View key={issue.id} style={styles.issue}>
               <Pressable
                 onPress={() => setView(issue.id)}
                 style={styles.button}>
