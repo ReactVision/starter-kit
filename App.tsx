@@ -8,6 +8,9 @@ import {
   View,
 } from 'react-native';
 
+import Viro360Image from './screens/viro_tests/Viro360Image';
+import Viro360Video from './screens/viro_tests/Viro360Video';
+
 import AR from './screens/demos/AR';
 import VR from './screens/demos/VR';
 
@@ -19,6 +22,8 @@ import Issue62 from './screens/github_issues/Issue62';
 
 import CheethKeeth12202021 from './screens/discord_issues/CheethKeeth_12202021';
 import VV12202021 from './screens/discord_issues/VV_12202021';
+
+const viro_tests = ['Viro360Image', 'Viro360Video'];
 
 const demos = [
   {title: 'AR Demo', id: 'AR'},
@@ -43,15 +48,20 @@ const discord_issues = [
 export default () => {
   const [view, setView] = useState('HOME');
 
-  const handleClickGitHubLink = id => {
+  const handleClickGitHubLink = (id: string) => {
     Linking.openURL(`https://github.com/ViroCommunity/viro/issues/${id}`);
   };
 
-  const handleClickDiscordLink = link => {
+  const handleClickDiscordLink = (link: any) => {
     Linking.openURL(link);
   };
 
   switch (view) {
+    case 'Viro360Image':
+      return <Viro360Image />;
+    case 'Viro360Video':
+      return <Viro360Video />;
+
     // Demos
     case 'AR':
       return <AR />;
@@ -81,6 +91,19 @@ export default () => {
           <View style={styles.header}>
             <Text style={styles.headerText}>Viro Starter Kit</Text>
           </View>
+
+          {/* General Demos */}
+          <View style={styles.header}>
+            <Text style={styles.subheaderText}>Viro Tests</Text>
+          </View>
+          {viro_tests.map(demo => (
+            <Pressable
+              key={demo}
+              onPress={() => setView(demo)}
+              style={styles.viroTestButton}>
+              <Text style={styles.buttonText}>{demo}</Text>
+            </Pressable>
+          ))}
 
           {/* General Demos */}
           <View style={styles.header}>
@@ -183,6 +206,17 @@ var styles = StyleSheet.create({
   },
   f1: {
     flex: 1,
+  },
+  viroTestButton: {
+    marginBottom: 10,
+    flex: 2,
+    marginRight: 10,
+    backgroundColor: '#ff3f5f',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    borderRadius: 10,
   },
   button: {
     marginBottom: 10,
