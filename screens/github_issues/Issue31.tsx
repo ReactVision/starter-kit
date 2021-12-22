@@ -1,15 +1,15 @@
 import {
+  Viro3DObject,
+  ViroAmbientLight,
   ViroARScene,
   ViroARSceneNavigator,
   ViroMaterials,
-  ViroAmbientLight,
   ViroNode,
   ViroText,
-  Viro3DObject,
-  ViroConstants,
 } from '@viro-community/react-viro';
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {handleTrackingUpdated} from '../../utils/handleTrackingUpdated';
 
 ViroMaterials.createMaterials({
   test: {
@@ -20,17 +20,8 @@ ViroMaterials.createMaterials({
 });
 
 const HelloWorldSceneAR = () => {
-  const onInitialized = (state, reason) => {
-    console.log('onInitialized', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
-      console.log('tracking initialized');
-    } else if (state === ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
-    }
-  };
-
   return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
+    <ViroARScene onTrackingUpdated={handleTrackingUpdated}>
       <ViroAmbientLight color="#ffffff" />
       <ViroNode scale={[0.7, 0.7, 0.7]} position={[0, 0, -1]}>
         <ViroText

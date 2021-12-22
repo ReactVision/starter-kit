@@ -1,13 +1,14 @@
 import {
-  ViroARObjectMarker,
   ViroARScene,
   ViroARSceneNavigator,
   ViroARTrackingTargets,
   ViroButton,
-  ViroConstants,
 } from '@viro-community/react-viro';
+import {ViroClickState} from '@viro-community/react-viro/components/Types/ViroEvents';
+import {Viro3DPoint} from '@viro-community/react-viro/components/Types/ViroUtils';
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {handleTrackingUpdated} from '../../utils/handleTrackingUpdated';
 
 ViroARTrackingTargets.createTargets({
   targetOne: {
@@ -17,25 +18,20 @@ ViroARTrackingTargets.createTargets({
 });
 
 const HelloWorldSceneAR = () => {
-  const onInitialized = (state, reason) => {
-    console.log('onInitialized', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
-      console.log('tracking initialized');
-    } else if (state === ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
-    }
-  };
-
-  const onButtonClick = (position, source) => {
+  const onButtonClick = (position: Viro3DPoint, source: any) => {
     console.log('button clicked', position, source);
   };
 
-  const onButtonClickState = (stateValue, position, source) => {
+  const onButtonClickState = (
+    stateValue: ViroClickState,
+    position: Viro3DPoint,
+    source: any,
+  ) => {
     console.log('button click state', stateValue, position, source);
   };
 
   return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
+    <ViroARScene onTrackingUpdated={handleTrackingUpdated}>
       <ViroButton
         source={require('../../assets/button/button.png')}
         gazeSource={require('../../assets/button/gazing.png')}

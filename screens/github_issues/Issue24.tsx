@@ -4,10 +4,10 @@ import {
   ViroARSceneNavigator,
   ViroARTrackingTargets,
   ViroBox,
-  ViroConstants,
 } from '@viro-community/react-viro';
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {handleTrackingUpdated} from '../../utils/handleTrackingUpdated';
 
 ViroARTrackingTargets.createTargets({
   targetOne: {
@@ -17,17 +17,8 @@ ViroARTrackingTargets.createTargets({
 });
 
 const HelloWorldSceneAR = () => {
-  function onInitialized(state, reason) {
-    console.log('onInitialized', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
-      console.log('tracking initialized');
-    } else if (state === ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
-    }
-  }
-
   return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
+    <ViroARScene onTrackingUpdated={handleTrackingUpdated}>
       <ViroARObjectMarker target={'targetOne'}>
         <ViroBox position={[0, 0.25, 0]} scale={[0.5, 0.5, 0.5]} />
       </ViroARObjectMarker>

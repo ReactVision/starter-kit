@@ -1,15 +1,10 @@
 import {
-  ViroARScene,
-  ViroARSceneNavigator,
-  ViroARTrackingTargets,
-  ViroButton,
-  ViroConstants,
-  ViroScene,
   Viro360Image,
+  ViroARTrackingTargets,
+  ViroScene,
   ViroVRSceneNavigator,
 } from '@viro-community/react-viro';
 import React from 'react';
-import {StyleSheet} from 'react-native';
 
 ViroARTrackingTargets.createTargets({
   targetOne: {

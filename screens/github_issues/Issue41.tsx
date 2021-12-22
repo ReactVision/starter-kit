@@ -3,24 +3,15 @@ import {
   ViroAmbientLight,
   ViroARScene,
   ViroARSceneNavigator,
-  ViroConstants,
   ViroText,
 } from '@viro-community/react-viro';
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {handleTrackingUpdated} from '../../utils/handleTrackingUpdated';
 
 const HelloWorldSceneAR = () => {
-  const onInitialized = (state, reason) => {
-    console.log('onInitialized', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
-      console.log('tracking initialized');
-    } else if (state === ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
-    }
-  };
-
   return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
+    <ViroARScene onTrackingUpdated={handleTrackingUpdated}>
       <ViroAmbientLight color="#ffffff" />
       <ViroText
         text={'Hello World!'}

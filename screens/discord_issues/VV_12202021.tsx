@@ -1,12 +1,12 @@
 import {
+  Viro3DObject,
   ViroARScene,
   ViroARSceneNavigator,
   ViroARTrackingTargets,
-  ViroConstants,
-  Viro3DObject,
 } from '@viro-community/react-viro';
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {handleTrackingUpdated} from '../../utils/handleTrackingUpdated';
 
 ViroARTrackingTargets.createTargets({
   targetOne: {
@@ -16,29 +16,20 @@ ViroARTrackingTargets.createTargets({
 });
 
 const HelloWorldSceneAR = () => {
-  function onInitialized(state, reason) {
-    console.log('onInitialized', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
-      console.log('tracking initialized');
-    } else if (state === ViroConstants.TRACKING_NONE) {
-      // Handle loss of tracking
-    }
-  }
-
-  const handleLoadStart = (...args) => {
+  const handleLoadStart = (...args: any) => {
     console.log('handleLoadStart', ...args);
   };
 
-  const handleLoadEnd = (...args) => {
+  const handleLoadEnd = (...args: any) => {
     console.log('handleLoadEnd', ...args);
   };
 
-  const handleError = (...args) => {
+  const handleError = (...args: any) => {
     console.log('handleError', ...args);
   };
 
   return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
+    <ViroARScene onTrackingUpdated={handleTrackingUpdated}>
       <Viro3DObject
         source={{
           uri: 'https://storage.googleapis.com/room-bucket/object_car.obj',
