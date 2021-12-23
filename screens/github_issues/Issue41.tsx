@@ -22,14 +22,28 @@ const HelloWorldSceneAR = () => {
       <Viro3DObject
         scale={[0.1, 0.1, 0.1]}
         position={[0, 0, -2]}
-        source={require('../../assets/LibertyStatue/LibertyStatue.obj')}
+        source={require('../../assets/Issue41/LibertyStatue_2.obj')}
         resources={[
-          require('../../assets/LibertyStatue/LibertyStatue.mtl'),
-          require('../../assets/LibertyStatue/Liberty-DecorazioniMarmo-2.bmp'),
-          require('../../assets/LibertyStatue/Liberty-GreenBronze-1.bmp'),
-          require('../../assets/LibertyStatue/Liberty-MattoniBasamento-1.bmp'),
-          require('../../assets/LibertyStatue/Liberty-Pavimentazione-1.bmp'),
-          require('../../assets/LibertyStatue/Liberty-PortaBronzo-1.bmp'),
+          // require('../../assets/Issue41/LibertyStatue.mtl'),
+          require('../../assets/Issue41/Liberty-DecorazioniMarmo-2.bmp'),
+          require('../../assets/Issue41/Liberty-GreenBronze-1.bmp'),
+          require('../../assets/Issue41/Liberty-MattoniBasamento-1.bmp'),
+          require('../../assets/Issue41/Liberty-Pavimentazione-1.bmp'),
+          require('../../assets/Issue41/Liberty-PortaBronzo-1.bmp'),
+        ]}
+        type="OBJ"
+      />
+      <Viro3DObject
+        scale={[0.1, 0.1, 0.1]}
+        position={[0, 0, -2]}
+        source={require('../../assets/Issue41/LibertyStatue.obj')}
+        resources={[
+          // require('../../assets/Issue41/LibertyStatue.mtl'),
+          require('../../assets/Issue41/Liberty-DecorazioniMarmo-2.bmp'),
+          require('../../assets/Issue41/Liberty-GreenBronze-1.bmp'),
+          require('../../assets/Issue41/Liberty-MattoniBasamento-1.bmp'),
+          require('../../assets/Issue41/Liberty-Pavimentazione-1.bmp'),
+          require('../../assets/Issue41/Liberty-PortaBronzo-1.bmp'),
         ]}
         type="OBJ"
       />

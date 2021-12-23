@@ -1,30 +1,17 @@
-import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
 import {
   ViroARScene,
-  ViroText,
   ViroARSceneNavigator,
-  ViroTrackingStateConstants,
-  ViroTrackingState,
-  ViroTrackingReason,
+  ViroText,
 } from '@viro-community/react-viro';
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {handleTrackingUpdated} from '../../utils/handleTrackingUpdated';
 
 const HelloWorldSceneAR = () => {
-  const [text, setText] = useState('Initializing AR...');
-
-  function onInitialized(state: ViroTrackingState, reason: ViroTrackingReason) {
-    console.log('guncelleme', state, reason);
-    if (state === ViroTrackingStateConstants.TRACKING_NORMAL) {
-      setText('Hello World!');
-    } else if (state === ViroTrackingStateConstants.TRACKING_UNAVAILABLE) {
-      // Handle loss of tracking
-    }
-  }
-
   return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
+    <ViroARScene onTrackingUpdated={handleTrackingUpdated}>
       <ViroText
-        text={text}
+        text={'Hello World!'}
         scale={[0.5, 0.5, 0.5]}
         position={[0, 0, -1]}
         style={styles.helloWorldTextStyle}
