@@ -2,6 +2,10 @@
 
 This is a blank React Native project setup with Viro.
 
+## Prerequesites 
+
+Set up the development environment for [react native](https://reactnative.dev/docs/environment-setup). 
+
 ## Installation
 
 1. `git clone https://github.com/ViroCommunity/starter-kit.git`
