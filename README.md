@@ -6,7 +6,7 @@ This is a blank React Native project setup with Viro.
 
 Set up the development environment for [react native](https://reactnative.dev/docs/environment-setup). 
 
-> ⚠️ NOTE: The android emulators are not supported by Viro. See [this](https://docs.viromedia.com/docs/installing-viro-android) for more
+> ⚠️ NOTE: The android emulators are not supported by Viro. See [this](https://viro-community.readme.io/docs/frequently-asked-questions#does-this-work-with-ios-simulators-or-android-emulators).
 
 ## Installation
 
