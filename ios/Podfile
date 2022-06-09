@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
-target 'myviroapp' do
+target 'nattuar' do
   config = use_native_modules!
 
   use_react_native!(
@@ -14,7 +14,7 @@ target 'myviroapp' do
   pod 'ViroReact', :path => '../node_modules/@viro-community/react-viro/ios/'
   pod 'ViroKit', :path => '../node_modules/@viro-community/react-viro/ios/dist/ViroRenderer/'
 
-  target 'myviroappTests' do
+  target 'nattuarTests' do
     inherit! :complete
     # Pods for testing
   end
