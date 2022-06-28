@@ -18,6 +18,8 @@ Set up the development environment for [react native](https://reactnative.dev/do
 
 if `npx react-native run-android` fails with EACCESS gradlew.bat or EACCESS gradlew, run `chmod +x gradlew.bat` or `chmod +x gradlew`.
 
+if `npx pod-install` fails on M1 Apple Mac or Macbook due to its CPU architecture, reinstall `cocoapads`, `ffi` and run `sudo arch -x86_64 npx pod-install` with Apple's Rosetta2.
+
 NOTE: The variant arguments are not needed for debug or release.
 
 ## How to Install Viro in an existing project?
