@@ -17,17 +17,29 @@ buildscript {
         classpath("com.android.tools.build:gradle:4.2.1")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
     }
 }
 
 allprojects {
     repositories {
+        exclusiveContent {
+            filter {
+                includeGroup "com.facebook.react"
+            }
+            forRepository {
+                maven {
+                    url "$rootDir/../node_modules/react-native/android"
+                }
+            }
+        }
         jcenter()
         mavenCentral()
         mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url("$rootDir/../node_modules/react-native/android")
+//            implementation 'com.facebook.react:react-native:0.68.2!!'
         }
         maven {
             // Android JSC is installed from npm
@@ -38,3 +50,4 @@ allprojects {
         maven { url 'https://www.jitpack.io' }
     }
 }
+
