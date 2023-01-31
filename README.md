@@ -2,11 +2,16 @@
 
 This is a blank React Native project setup with Viro.
 
+⚠️ NOTE FOR FIX (ThomasCarstens/starter-kit): 
+Specifically```react-native@0.65.1``` (future versions not currently compatible with Viro). 
+- As a result, we will need to downgrade multiple packages (see list in ```package.json```. 
+- This fix (ThomasCarstens/starter-kit) uses Node version 16 (no higher).
+
 ## Prerequesites 
 
 Set up the development environment for [react native](https://reactnative.dev/docs/environment-setup). 
 
-> ⚠️ NOTE: The android emulators are not supported by Viro. See [this](https://viro-community.readme.io/docs/frequently-asked-questions#does-this-work-with-ios-simulators-or-android-emulators).
+> ⚠️ NOTE : The android emulators are not supported by Viro. See [this](https://viro-community.readme.io/docs/frequently-asked-questions#does-this-work-with-ios-simulators-or-android-emulators).
 
 ## Installation
 
