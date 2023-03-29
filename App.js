@@ -7,12 +7,14 @@ import {
   ViroARSceneNavigator,
 } from '@viro-community/react-viro';
 
+import BusinessCard from './BusinessCard';
+
 const HelloWorldSceneAR = () => {
   const [text, setText] = useState('Initializing AR...');
 
   function onInitialized(state, reason) {
     console.log('guncelleme', state, reason);
-    if (state === ViroConstants.TRACKING_NORMAL) {
+    if (true) {
       setText('Hello World!');
     } else if (state === ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
@@ -36,7 +38,7 @@ export default () => {
     <ViroARSceneNavigator
       autofocus={true}
       initialScene={{
-        scene: HelloWorldSceneAR,
+        scene: BusinessCard, // business card scene trust
       }}
       style={styles.f1}
     />
