@@ -1,29 +1,17 @@
-# Viro Starter Kit
+# Proyecto integrador para el desarrollo de soluciones empresariales: Visualización de datos con realidad aumentada
 
-This is a blank React Native project setup with Viro.
+## Cliente: Blue People
 
-## Prerequesites 
+## Equipo de desarrollo: Tech People
 
-Set up the development environment for [react native](https://reactnative.dev/docs/environment-setup). 
+## Descripción breve del proyecto:
 
-> ⚠️ NOTE: The android emulators are not supported by Viro. See [this](https://viro-community.readme.io/docs/frequently-asked-questions#does-this-work-with-ios-simulators-or-android-emulators).
+Aplicación móvil AR para visualizar información asociada a QR's en forma de elementos de realidad aumentada
 
-## Installation
+## Instrucciones para correr:
 
-1. `git clone https://github.com/ViroCommunity/starter-kit.git`
-2. `cd starter-kit`
-3. `npm install`
-4. `npx pod-install` (iOS)
-5. `npx react-native run-android` or `npx react-native run-ios`
-
-if `npx react-native run-android` fails with EACCESS gradlew.bat or EACCESS gradlew, run `chmod +x gradlew.bat` or `chmod +x gradlew`.
-
-NOTE: The variant arguments are not needed for debug or release.
-
-## How to Install Viro in an existing project?
-
-If you are integrating ViroReact into an existing project, have a look at our [Installation instructions](https://github.com/ViroCommunity/viro/blob/main/readmes/INSTALL.md). Please note that this does _not_ work with Expo Managed Workflows. Sorry!
-
-# Need help?
-
-[Reach us in Discord.](https://discord.gg/YfxDBGTxvG)
+1. git clone https://github.com/EinarLop/TechPeopleAR.git
+2. kill -9 $(lsof -ti:8081)
+3. npm install --legacy-peer-deps
+4. npx pod-install (iOS)
+5. npx react-native run-ios
