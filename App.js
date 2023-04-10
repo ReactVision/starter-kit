@@ -9,6 +9,7 @@ import {
 
 import BusinessCard from './BusinessCard';
 import Card from './Card';
+import CardFun from './CardFun';
 
 const HelloWorldSceneAR = () => {
   const [text, setText] = useState('Initializing AR...');
