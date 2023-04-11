@@ -53,6 +53,12 @@ class BusinessCard extends Component {
     // };
     // console.log('Done');
     popo = {
+      test: {
+        source: require('./res/out.png'),
+        orientation: 'Up',
+        physicalWidth: 0.1, // real world width in meters
+        data: 'neeeeew',
+      },
       qr: {
         source: require('./res/testQR.png'),
         orientation: 'Up',

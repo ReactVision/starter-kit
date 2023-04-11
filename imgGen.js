@@ -1,4 +1,4 @@
-let canvas = document.createElement('canvas');
-canvas.height = 320;
-canvas.width = 320;
-let context = canvas.getContext('2d');
+var bmp = new Bitmap(w, h);
+bmp.pixel[x][y] = [r, g, b, a];
+bmp.subsample(n);
+var url = bmp.dataURL();
