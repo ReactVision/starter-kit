@@ -53,23 +53,29 @@ class BusinessCard extends Component {
     // };
     // console.log('Done');
     popo = {
-      test: {
-        source: require('./res/out.png'),
+      bulbasur: {
+        source: require('./pokemon/bulbasur.png'),
         orientation: 'Up',
         physicalWidth: 0.1, // real world width in meters
-        data: 'neeeeew',
+        data: 'bulbasur',
       },
-      qr: {
-        source: require('./res/testQR.png'),
+      charmander: {
+        source: require('./pokemon/charmander.png'),
         orientation: 'Up',
         physicalWidth: 0.1, // real world width in meters
-        data: 'Hello',
+        data: 'charmander',
       },
-      businessCard: {
-        source: require('./res/business_card.png'),
+      pikachu: {
+        source: require('./pokemon/pikachu.png'),
         orientation: 'Up',
         physicalWidth: 0.1, // real world width in meters
-        data: 'Bye',
+        data: 'pikachu',
+      },
+      squirtle: {
+        source: require('./pokemon/squirtle.png'),
+        orientation: 'Up',
+        physicalWidth: 0.1, // real world width in meters
+        data: 'squirtle',
       },
     };
     this.setState({
