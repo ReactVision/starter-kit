@@ -8,6 +8,8 @@ import {
 } from '@viro-community/react-viro';
 
 import BusinessCard from './BusinessCard';
+import Card from './Card';
+import CardFun from './CardFun';
 
 const HelloWorldSceneAR = () => {
   const [text, setText] = useState('Initializing AR...');
@@ -38,7 +40,7 @@ export default () => {
     <ViroARSceneNavigator
       autofocus={true}
       initialScene={{
-        scene: BusinessCard, // business card scene trust
+        scene: Card, // business card scene trust
       }}
       style={styles.f1}
     />
