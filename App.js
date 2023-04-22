@@ -40,7 +40,7 @@ export default () => {
     <ViroARSceneNavigator
       autofocus={true}
       initialScene={{
-        scene: Card, // business card scene trust
+        scene: BusinessCard, // business card scene trust
       }}
       style={styles.f1}
     />

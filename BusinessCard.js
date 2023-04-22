@@ -2,7 +2,9 @@
 
 import React, { Component } from 'react';
 
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Linking} from 'react-native';
+// TODO instead use get instead of local import. use only for testing
+import people from './people';
 
 import {
   ViroARScene,
@@ -30,7 +32,27 @@ class BusinessCard extends Component {
   state = {
     isTracking: false,
     initialized: false,
-    runAnimation: false
+    runAnimation: false,
+    peopleObjTargets: {}
+  }
+
+  componentDidMount() {
+
+    const peopleObjTargetsLocal = {}
+
+    people.forEach(person => {
+      peopleObjTargetsLocal[person.id] = {
+        source: require('./pokemon/004.png'),
+        orientation: 'Up',
+        physicalWidth: 0.05, // width in meters,
+        data : person,
+        type : 'Image',
+      }
+    })
+
+    this.setState({peopleObjTargets : peopleObjTargetsLocal})
+    ViroARTrackingTargets.createTargets(peopleObjTargetsLocal);
+
   }
 
   getNoTrackingUI(){
@@ -43,160 +65,85 @@ class BusinessCard extends Component {
     )
   }
 
-
-
   getARScene() {
     return (
-      <>
       <ViroNode>
-        <ViroARImageMarker target={"businessCard"}
-          onAnchorFound={
-            () => this.setState({
-                runAnimation: true
-            })}
-        >
-          <ViroNode key="card">
-            <ViroNode
-              opacity={0} position={[0, -0.02, 0]}
-              animation={{
-                name:'animateImage',
-                run: this.state.runAnimation
-                }}
+        {Object.values(this.state.peopleObjTargets).map((person, index) => {
+          return (
+            <ViroARImageMarker target={person['data']['id']} key={index}
+              onAnchorFound={
+                () => this.setState({
+                    runAnimation: true
+                })}
             >
-              <ViroFlexView
-                  rotation={[-90, 0, 0]}
-                  height={0.03}
-                  width={0.05}
-                  style={styles.card}
-              >
-                <ViroFlexView
-                  style={styles.cardWrapper}
+              <ViroNode key={person['data']['name']}>
+                <ViroNode
+                  opacity={0} position={[0, -0.02, 0]}
+                  animation={{
+                    name:'animateImage',
+                    run: this.state.runAnimation
+                    }}
                 >
-                  <ViroImage
-                    height={0.015}
-                    width={0.015}
-                    style={styles.image}
-                    source={require('./res/avatar.png')}
-                  />
-                  <ViroText
-                    textClipMode="None"
-                    text="Vladimir Novick"
-                    scale={[.015, .015, .015]}
-                    style={styles.textStyle}
-                  />
-                </ViroFlexView>
-                <ViroFlexView
-                  onTouch={() => alert("twitter")}
-                  style={styles.subText}
-                >
-                  <ViroText
-                    width={0.01}
-                    height={0.01}
-                    textAlign="left"
-                    textClipMode="None"
-                    text="@VladimirNovick"
+                  <ViroFlexView
+                      rotation={[-90, 0, 0]}
+                      height={0.03}
+                      width={0.05}
+                      style={styles.card}
+                  >
+                    <ViroFlexView
+                      style={styles.cardWrapper}
+                    >
+                      <ViroImage
+                        height={0.015}
+                        width={0.015}
+                        style={styles.image}
+                        source={{uri : person['data']['image']}}
+                      />
+                      <ViroText
+                        textClipMode="None"
+                        text={person['data']['name']}
+                        scale={[.015, .015, .015]}
+                        style={styles.textStyle}
+                      />
+                    </ViroFlexView>
+                    <ViroFlexView
+                      onTouch={() => Linking.openURL(person['data']['link'])}
+                      style={styles.cardWrapper}
+                    >
+                      <ViroText
+                        width={0.01}
+                        height={0.01}
+                        textAlign="left"
+                        textClipMode="None"
+                        text={person['data']['company_name']}
+                        scale={[.01, .01, .01]}
+                        style={styles.textStyle}
+                      />
+                      <ViroImage
+                        height={0.01}
+                        width={0.01}
+                        style={styles.image}
+                        source={{uri : person['data']['company_logo']}}
+                      />
+                    </ViroFlexView>
+                  </ViroFlexView>
+                </ViroNode>
+                <ViroFlexView >
+                  <ViroText text={person['data']['mail']}
+                    rotation={[-90, 0, 0]}
                     scale={[.01, .01, .01]}
                     style={styles.textStyle}
                   />
-                  <ViroAnimatedImage
-                    height={0.01}
-                    width={0.01}
-                    loop={true}
-                    source={require('./res/tweet.gif')}
+                  <ViroText text={person['data']['role']}
+                    rotation={[-90, 0, 0]}
+                    scale={[.01, .01, .01]}
+                    style={styles.textStyle}
                   />
                 </ViroFlexView>
-              </ViroFlexView>
-            </ViroNode>
-            <ViroNode opacity={0} position={[0, 0, 0]}
-              animation={{
-                name:'animateViro',
-                run: this.state.runAnimation
-              }}
-            >
-              <ViroText text="www.viromedia.com"
-                rotation={[-90, 0, 0]}
-                scale={[.01, .01, .01]}
-                style={styles.textStyle}
-              />
-            </ViroNode>
-          </ViroNode>
-        </ViroARImageMarker>
-      </ViroNode>
-      <ViroNode>
-      <ViroARImageMarker target={"qr"}
-        onAnchorFound={
-          () => this.setState({
-              runAnimation: true
-          })}
-      >
-        <ViroNode key="card">
-          <ViroNode
-            opacity={0} position={[0, -0.02, 0]}
-            animation={{
-              name:'animateImage',
-              run: this.state.runAnimation
-              }}
-          >
-            <ViroFlexView
-                rotation={[-90, 0, 0]}
-                height={0.03}
-                width={0.05}
-                style={styles.card}
-            >
-              <ViroFlexView
-                style={styles.cardWrapper}
-              >
-                <ViroImage
-                  height={0.015}
-                  width={0.015}
-                  style={styles.image}
-                  source={require('./res/avatar.png')}
-                />
-                <ViroText
-                  textClipMode="None"
-                  text="TESTING"
-                  scale={[.015, .015, .015]}
-                  style={styles.textStyle}
-                />
-              </ViroFlexView>
-              <ViroFlexView
-                onTouch={() => alert("twitter")}
-                style={styles.subText}
-              >
-                <ViroText
-                  width={0.01}
-                  height={0.01}
-                  textAlign="left"
-                  textClipMode="None"
-                  text="@VladimirNovick"
-                  scale={[.01, .01, .01]}
-                  style={styles.textStyle}
-                />
-                <ViroAnimatedImage
-                  height={0.01}
-                  width={0.01}
-                  loop={true}
-                  source={require('./res/tweet.gif')}
-                />
-              </ViroFlexView>
-            </ViroFlexView>
-          </ViroNode>
-          <ViroNode opacity={0} position={[0, 0, 0]}
-            animation={{
-              name:'animateViro',
-              run: this.state.runAnimation
-            }}
-          >
-            <ViroText text="www.viromedia.com"
-              rotation={[-90, 0, 0]}
-              scale={[.01, .01, .01]}
-              style={styles.textStyle}
-            />
-          </ViroNode>
-        </ViroNode>
-      </ViroARImageMarker>
+              </ViroNode>
+            </ViroARImageMarker>)
+        })}
     </ViroNode>
-    </>
     )
   }
 
@@ -228,7 +175,8 @@ var styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   card: {
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: '#4476BA',
   },
   cardWrapper: {
     flexDirection: 'row',
@@ -241,19 +189,6 @@ var styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     flex: .5
-  }
-});
-
-ViroARTrackingTargets.createTargets({
-  "qr" : {
-    source : require('./res/testQR.png'),
-    orientation : "Up",
-    physicalWidth : 0.1 // real world width in meters
-  },
-  "businessCard" : {
-    source : require('./res/business_card.png'),
-    orientation : "Up",
-    physicalWidth : 0.1 // real world width in meters
   }
 });
 
