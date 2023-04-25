@@ -39,7 +39,7 @@ let popo = {
   // },
 };
 
-class BusinessCard extends Component {
+class Card extends Component {
   constructor() {
     super();
     this._targ = this._targ.bind(this);
@@ -182,4 +182,4 @@ var styles = StyleSheet.create({
   },
 });
 
-export default BusinessCard;
+export default Card;
