@@ -52,11 +52,16 @@ class BusinessCard extends Component {
       querySnapshot.forEach(documentSnapshot => {
         entryTargets[documentSnapshot.id] = documentSnapshot.data();
       });
+      const parseInteger = (num) => {
+        let str = num.toString();
+        str = str.padStart(3, "0");
+        return str;
+      };
       this.setState({ entryTargets }, () => {
         for (const [key, value] of Object.entries(this.state.entryTargets)) {
           entriesLocal[key] = {
             source: {
-              uri: `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/00${value.pokemon}.png`,
+              uri: `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${parseInteger(value.pokemon)}.png`,
             },
             orientation: 'Up',
             physicalWidth: 0.1, // width in meters,
@@ -87,10 +92,35 @@ class BusinessCard extends Component {
     );
   }
 
-
   render() {
-    const height = 0.0520
-    const width = 0.0375
+    const testContent = (demoText) => <ViroFlexView borderRadius={30} width={2.1} position={[0, -5, 0]} rotation={[-90, 0, 0]} height={3} backgroundColor={'pink'} style={{ flexDirection: 'column' }} >
+    <ViroFlexView backgroundColor={'#092336'} style={{ flex: 0.1, flexDirection: 'row' }} >
+        <ViroFlexView backgroundColor={'#092336'} style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }} >
+            <ViroText
+                style={{ flex: 0.4, color: 'white', marginLeft: .1, }}
+                text={'Tech People'}
+                fontSize={12} />
+            <ViroText
+                style={{ flex: 0.4, color: 'white', marginLeft: .1, }}
+                text={"100 HP"}
+                fontSize={12} />
+        </ViroFlexView>
+    </ViroFlexView>
+    <ViroFlexView backgroundColor={'white'} style={{ flex: 0.6 }} >
+        <ViroImage borderRadius={30} style={{ flex: 1 }} source={{ uri: 'https://lh3.googleusercontent.com/9BdThza876Ojf5bkVg5yafoEsR0aABZ7cT1jtsWeAxXuWA4wFMXAJOHoST-3DVTKNqLp0Ir_ia3g9zS0k_u-JbImNzMOLoDT553U=s0' }} />
+    </ViroFlexView>
+    <ViroFlexView backgroundColor={'#239bac'} style={{ flex: 0.3, flexDirection: 'column' }} >
+        <ViroText
+            style={{ flex: 0.3, color: 'white', marginLeft: .2 }}
+            text={'Demo'}
+            fontSize={12} />
+        <ViroText
+            style={{ flex: 0.7, color: 'white', marginLeft: .2 }}
+            text={demoText}
+            fontSize={12} />
+    </ViroFlexView>
+  </ViroFlexView>
+
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized}>
         {Object.keys(this.state.realTargets).map((key, index) => {
@@ -111,24 +141,7 @@ class BusinessCard extends Component {
             >
               {this.state.activeKey === key &&
                 <ViroNode>
-                  <ViroFlexView
-                    width={width}
-                    height={height}
-                    opacity={this.state.realTargets[key].data.opacity}
-                    rotation={[-90, 0, 0]}
-                    style={{
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      backgroundColor: '#0000ff',
-                      padding: .1,
-                      flex: 1,
-                    }}>
-                    <ViroText
-                      text={this.state.realTargets[key].data.pokemon.toString()}
-                      scale={[.015, .015, .015]}
-                      style={{ ...styles.textStyle }}
-                    />
-                  </ViroFlexView>
+                  {testContent(this.state.realTargets[key].data.text)}
                 </ViroNode>
               }
             </ViroARImageMarker>
