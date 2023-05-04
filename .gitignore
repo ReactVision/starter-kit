@@ -1,4 +1,6 @@
 /ios/GoogleService-Info.plist
+/android/app/google-services.json
+
 # OSX
 #
 .DS_Store
