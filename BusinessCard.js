@@ -37,6 +37,7 @@ class BusinessCard extends Component {
     entryTargets: {},
     realTargets: {},
     ready: false,
+    activeKey: null,
   };
   componentDidMount() {
     this.get();
@@ -59,7 +60,7 @@ class BusinessCard extends Component {
             },
             orientation: 'Up',
             physicalWidth: 0.1, // width in meters,
-            data: { text: value.text, pokemon: value.pokemon, showMarker: true },
+            data: { text: value.text, pokemon: value.pokemon },
             type: 'Image',
           };
         }
@@ -104,22 +105,30 @@ class BusinessCard extends Component {
                 // this.setState({
                 //   runAnimation: true,
                 // });
-                () => {
+                (e) => {
                   console.log('Anchor found ' + this.state.realTargets[key].data.pokemon)
-                  // show info 
+                  // show info from key 
+                  this.setState({
+                    activeKey: key
+                  });
                 }
               }
-              onAnchorRemoved={() => {
-                // remove info 
-                console.log('Anchor removed ' + this.state.realTargets[key].data.pokemon)
+              onAnchorUpdated={(e) => {
+                // anchor out of sight
+                if(this.state.activeKey === key && e.trackingMethod === 'lastKnownPose'){
+                  // remove marker from sight
+                  console.log('Anchor removed ' + this.state.realTargets[key].data.pokemon)
+                  this.setState({
+                    activeKey: null
+                  });
+                }
               }}
             >
-              {this.state.realTargets[key].data.showMarker &&
+              {this.state.activeKey === key &&
                 <ViroNode>
                   <ViroFlexView
                     width={width}
                     height={height}
-                    opacity={this.state.realTargets[key].data.opacity}
                     rotation={[-90, 0, 0]}
                     style={{
                       flexDirection: 'column',
@@ -144,20 +153,69 @@ class BusinessCard extends Component {
   }
 
   render() {
+    const height = 0.0520
+    const width = 0.0375
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized}>
-        {this.state.isTracking ? this.getNoTrackingUI() : this.getARScene()}
+        {Object.keys(this.state.realTargets).map((key, index) => {
+          return (
+            <ViroARImageMarker
+              target={key}
+              key={index}
+              onAnchorUpdated={(e) => {
+                // anchor out of sight
+                if(this.state.activeKey === key && e.trackingMethod === 'lastKnownPose'){
+                  // remove marker from sight
+                  console.log('Anchor removed ' + this.state.realTargets[key].data.pokemon)
+                  this.setState({
+                    activeKey: null
+                  });
+                }else if(this.state.activeKey !== key && e.trackingMethod === 'tracking'){
+                  console.log('Anchor found ' + this.state.realTargets[key].data.pokemon)
+                  // show info from key 
+                  this.setState({
+                    activeKey: key
+                  });
+                }
+              }}
+            >
+              {this.state.activeKey === key &&
+                <ViroNode>
+                  <ViroFlexView
+                    width={width}
+                    height={height}
+                    opacity={this.state.realTargets[key].data.opacity}
+                    rotation={[-90, 0, 0]}
+                    style={{
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      backgroundColor: '#0000ff',
+                      padding: .1,
+                      flex: 1,
+                    }}>
+                    <ViroText
+                      text={this.state.realTargets[key].data.pokemon.toString()}
+                      scale={[.015, .015, .015]}
+                      style={{ ...styles.textStyle }}
+                    />
+                  </ViroFlexView>
+                </ViroNode>
+              }
+            </ViroARImageMarker>
+          );
+        })}
       </ViroARScene>
     );
   }
 
   _onInitialized = (state, reason) => {
     if (state == ViroTrackingStateConstants.TRACKING_NORMAL) {
-      isTracking: true;
+      //
     } else {
-      isTracking: false;
+      //
     }
   };
+
 }
 
 var styles = StyleSheet.create({
