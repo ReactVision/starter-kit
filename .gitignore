@@ -1,3 +1,4 @@
+/ios/GoogleService-Info.plist
 # OSX
 #
 .DS_Store
@@ -59,3 +60,4 @@ buck-out/
 /ios/Pods/
 
 *.hprof
+
