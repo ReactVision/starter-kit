@@ -1,6 +1,23 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- https://viro-community.readme.io/docs/installation-instructions#6-in-your-androidappsrcmainandroidmanifestxml -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 
+    <meta-data android:name="com.google.ar.core" android:value="optional" />
+    
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Other camera related features -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" tools:replace="required"/>
+    <!-- Specifying OpenGL verison or requirements -->
+    <uses-feature android:glEsVersion="0x00030000" android:required="false" tools:node="remove" tools:replace="required" />
+    <!-- Usage of accelerometer and gyroscope -->
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" tools:replace="required" />
+    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="false" tools:replace="required" />
+
+    <queries>
+        <package android:name="com.google.ar.core" />
+    </queries>
 
     <application
       android:name=".MainApplication"
