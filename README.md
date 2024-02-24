@@ -15,6 +15,7 @@ If you are integrating ViroReact into an existing project, have a look at our [I
 ```bash
 npm install
 ```
+
 ### iOS only:
 
 ```bash
@@ -46,7 +47,27 @@ npx react-native run-ios
 npx react-native run-android
 ```
 
-If everything is set up _correctly_, you should see your new app running on you device. 
+If everything is set up _correctly_, you should see your new app running on you device.
+
+#### Install CocoaPods
+
+```bash
+cd ios
+pod install
+cd ..
+```
+
+```bash
+# using npm
+npm run ios
+
+# OR using Yarn
+yarn ios
+```
+
+If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+
+This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
 ## Step 4: Modifying your App
 

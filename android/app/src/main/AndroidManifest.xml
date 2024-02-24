@@ -1,6 +1,22 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" >
+    <queries>
+        <package android:name="com.google.ar.core" />
+    </queries>
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- You may need these if doing any screen recording from within the app -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- Other camera related features -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" tools:replace="required"/>
+    <!-- Specifying OpenGL verison or requirements -->
+    <uses-feature android:glEsVersion="0x00030000" android:required="false" tools:node="remove" tools:replace="required" />
+    <!-- Usage of accelerometer and gyroscope -->
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" tools:replace="required" />
+    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="false" tools:replace="required" />
 
     <application
       android:name=".MainApplication"
@@ -20,6 +36,10 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+
       </activity>
+
+      <meta-data android:name="com.google.ar.core" android:value="optional" />
+      <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only"/>
     </application>
 </manifest>
