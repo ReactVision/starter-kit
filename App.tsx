@@ -4,7 +4,7 @@ import {
   ViroText,
   ViroTrackingReason,
   ViroTrackingStateConstants,
-} from "@viro-community/react-viro";
+} from "@reactvision/react-viro";
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 
