@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@reactvision/react-viro": "^2.41.3",
+    "@reactvision/react-viro": "^2.41.4",
     "react": "18.2.0",
     "react-native": "0.73.3"
   },
